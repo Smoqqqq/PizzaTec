@@ -1,10 +1,9 @@
-<?php include "functions/login.php" ?>
-
 <div class="container">
     <div class="row">
-        <div class="col-sm-6 offset-3">
+        <div class="col-md-6 offset-md-3">
             <form method="post">
                 <h2>Se connecter</h2><br>
+                <?php include "functions/login.php" ?>
                 <label for="email">E-mail</label>
                 <input type="text" name="email" id="email" class="form-control">
                 <label for="password">Mot de passe</label>
