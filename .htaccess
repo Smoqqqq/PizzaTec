@@ -1,0 +1,45 @@
+###Variable d'environnement
+SetEnv MAGIC_QUOTES 0
+SetEnv REGISTER_GLOBALS 0
+
+###Interdire le listing  contenu d'un dossier
+Options -Indexes
+
+RewriteEngine on
+Options +FollowSymlinks
+
+#RewriteCond %{HTTP_HOST} !^www\.
+#RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+#RewriteRule ^([_a-z0-9]*)$ index.php [L]
+#RewriteRule ^(.*)$ index.php [L]
+#RewriteRule ^(adminXXX)($|/) - [L]
+RewriteRule !\.(js|ico|txt|gif|jpg|png|css|less|otf|eot|svg|ttf|woff|pdf|zip|xml|svg)$ index.php
+
+
+#Ou /index.php
+ErrorDocument 404 /Template_v4/index.php 
+ErrorDocument 403 /Template_v4//index.php
+
+AddCharset UTF-8 .html
+
+#comprime le fichier avant de le servir
+SetOutputFilter DEFLATE
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+
+    ExpiresDefault "access plus 1 month"
+
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType text/css "access 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType application/x-javascript "access plus 1 month"
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header set Connection keep-alive
+</IfModule>
