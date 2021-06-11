@@ -5,6 +5,7 @@ $routes = array(
     "login" => "login",
     "register" => "register",
     "menu" => "menu",
+    "panier" => "panier",
 );
 
 $description_default = "";
@@ -15,4 +16,5 @@ $metas = array(
     "login" => array("Se connecter", "", ""),
     "register" => array("S'enregistrer", "", ""),
     "menu" => array("Le menu", "", ""),
+    "panier" => array("Consultez vos commandes", "", ""),
 );
