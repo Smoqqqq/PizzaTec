@@ -26,6 +26,7 @@
         <?php include $page ?>
     </div>
 
+    <?php include "modules/footer.php"; ?>
     <?php include "javascript-bottom.php"; ?>
 
 </body>
