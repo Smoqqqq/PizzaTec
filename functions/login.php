@@ -11,7 +11,6 @@ if (isset($_POST['login'])) {
     $data = $query->fetch(PDO::FETCH_OBJ);
 
     if (isset($data->email)) {
-        session_start();
         $_SESSION['isLogged'] = $email;
         header("location: $routes[home]");
     } else {
